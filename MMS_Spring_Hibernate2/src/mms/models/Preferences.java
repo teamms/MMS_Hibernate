@@ -39,6 +39,12 @@ public class Preferences {
 	public void setPreferredComplexion(String preferredComplexion) {
 		this.preferredComplexion = preferredComplexion;
 	}
+	public String getPreferredDiet() {
+		return preferredComplexion;
+	}
+	public void setPreferredDiet(String preferredComplexion) {
+		this.preferredComplexion = preferredComplexion;
+	}
 	
 
 }

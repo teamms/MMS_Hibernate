@@ -18,8 +18,11 @@
 	private ArrayList<String> fields = JobData.fields;
 	private ArrayList<String> jobLocations = JobData.jobLocations;
 	private ArrayList<String> salaries = JobData.salaries;
-	
-	
+	private ArrayList<String> complexions = AppearanceData.complexions;
+	private ArrayList<String> religions = AccountInformationData.religions;
+	private ArrayList<String> diets = MoreDetails.diets;
+	private ArrayList<String> smokings = MoreDetails.smokings;
+	private ArrayList<String> drinkings = MoreDetails.drinkings;
 	%>
 <body>
 	<h2 align="center">Matrimonial Matchmaking System</h2>
@@ -27,8 +30,16 @@
 		<h3>Account Information</h3>
 		Name:<input type="text" name="name" /> <br> UserName:<input
 			type="text" name="userName" /> <br> Password:<input
-			type="password" name="password" /> <br> Religion:<input
-			type="text" name="religion" /> <br> About:<input type="text"
+			type="password" name="password" /> <br> Religion:<select name="religion">
+			<%
+				for (String religion : religions) {
+			%>
+			<option value="<%=religion%>"><%=religion%></option>
+			<%
+				}
+			%>
+
+		</select><br> About:<input type="text"
 			name="about" /> <br>
 
 		<h3>Location</h3>
@@ -145,22 +156,106 @@
 
 		<h3>Appearance</h3>
 		Height:<input type="text" name="height" /> <br> Weight:<input
-			type="text" name="weight" /> <br> Complexion:<input type="text"
-			name="complexion" /> <br> Additional Details:<input type="text"
+			type="text" name="weight" /> <br> Complexion:<select name="complexion">
+			<%
+				for (String complexion: complexions) {
+			%>
+			<option value="<%=complexion%>"><%=complexion%></option>
+			<%
+				}
+			%>
+		</select><br> <br> Additional Details:<input type="text"
 			name="additionalDetails" /> <br>
 
 		<h3>Preferences</h3>
-		Preferred Location:<input type="text" name="preferredLocation" /> <br>
-		Preferred Religion:<input type="text" name="preferredReligion" /> <br>
-		Preferred Education:<input type="text" name="preferredEducation" /> <br>
-		Preferred Complexion:<input type="text" name="preferredComplexion" />
-		<br> Preferred Income:<input type="text" name="preferredIncome" />
-		<br>
+		Preferred Location:<select name="preferredLocation">
+			<%
+				for (String district : districts) {
+			%>
+			<option value="<%=district%>"><%=district%></option>
+			<option value="0">COOL</option>
+			<%
+				}
+			%>
+
+		</select><br>
+		Preferred Religion:<select name="preferredReligion">
+			<%
+				for (String religion : religions) {
+			%>
+			<option value="<%=religion%>"><%=religion%></option>
+			<option value="0">COOL</option>
+			<%
+				}
+			%>
+
+		</select><br>
+		Preferred Education:Degree:<select name="preferredDegree">
+			<%
+				for (String degree : degrees) {
+			%>
+			<option value="<%=degree%>"><%=degree%></option>
+			<option value="0">COOL</option>
+			<%
+				}
+			%>
+		</select><br>
+		Preferred Complexion:<select name="preferredComplexion">
+			<%
+				for (String complexion: complexions) {
+			%>
+			<option value="<%=complexion%>"><%=complexion%></option>
+			<option value="0">COOL</option>
+			<%
+				}
+			%>
+		</select><br>
+		Preferred Diet:<select name="preferredDiet">
+			<%
+				for (String diet:diets) {
+			%>
+			<option value="<%=diet%>"><%=diet%></option>
+			<option value="0">COOL</option>
+			<%
+				}
+			%>
+		</select><br> Preferred Income:<select name="preferredSalary">
+			<%
+				for (String salary: salaries) {
+			%>
+			<option value="<%=salary%>"><%=salary%></option>
+			<option value="0">COOL</option>
+			<%
+				}
+			%>
+		</select><br>
 
 		<h3>More Details</h3>
-		Diet:<input type="text" name="diet" /> <br> Drinking:<input
-			type="text" name="drinking" /> <br> Smoking:<input type="text"
-			name="smoking" /> <br>
+		Diet:<select name="diet">
+			<%
+				for (String diet:diets) {
+			%>
+			<option value="<%=diet%>"><%=diet%></option>
+			<%
+				}
+			%>
+		</select><br> Drinking:<select name="diet">
+			<%
+				for (String drinking:drinkings) {
+			%>
+			<option value="<%=drinking%>"><%=drinking%></option>
+			<%
+				}
+			%>
+		</select><br> Smoking:<select name="diet">
+			<%
+				for (String smoking:smokings) {
+			%>
+			<option value="<%=smoking%>"><%=smoking%></option>
+			<%
+				}
+			%>
+		</select><br> 
 		<br> Date Of Birth:<br>Day:<input type="text" name="dobDay" />
 		<br> Month:<input type="text" name="dobMonth" /> <br> Year:<input
 			type="text" name="dobYear" /> <br>
