@@ -1,12 +1,9 @@
 package mms.servlets;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.List;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +15,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Example;
-import org.apache.commons.fileupload.*;
-import org.apache.commons.fileupload.disk.*;
-import org.apache.commons.fileupload.servlet.*;
+
 
 import mms.models.*;
 
@@ -29,8 +24,7 @@ public class TestDatabase extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Person person=new Person();
 		Job job=new Job();
@@ -39,42 +33,11 @@ public class TestDatabase extends HttpServlet {
 		Preferences preferences=new Preferences();
 		Misc misc=new Misc();
 		Education education=new Education();
-		//PrintWriter out = response.getWriter();
-		
-		
-		//**File uploading...
-		PrintWriter out = response.getWriter();
-		String destination="/";
-		//ServletContext context=getServletContext();  
-		String destinationRealPath=getServletContext().getRealPath(destination);	
-		FileItemFactory factory=new DiskFileItemFactory();
-		//((DiskFileItemFactory) factory).setSizeThreshold(2048*1024);
-		((DiskFileItemFactory) factory).setRepository(new File(destinationRealPath));
-		ServletFileUpload uploader=new ServletFileUpload(factory);
-		//uploader.setFileItemFactory(factory);
-		try{
-			List items=uploader.parseRequest(request);
-			Iterator iterator=items.iterator();
-			while(iterator.hasNext()){
-				FileItem item=(FileItem)iterator.next();
-				File file=new File(destinationRealPath,item.getName());
-				item.write(file);
-				out.println(file.getName()+" was uploaded successfully");
-			}
-			
-			
-			
-		}catch(Exception e){
-			out.println("exception thrown "+e.getLocalizedMessage()+e.getMessage()+e.getClass()+e.getCause());
-		}
-		
-		
-		//**File uploading over...
 		
 		
 		
 		
-		/*String name=request.getParameter("name");
+		String name=request.getParameter("name");
 		String userName=request.getParameter("userName");
 		String password=request.getParameter("password");
 		String religion=request.getParameter("religion");
@@ -163,7 +126,7 @@ public class TestDatabase extends HttpServlet {
 		person.setPreferences(preferences);
 		person.setReligion(religion);
 		person.setUserName(userName);
-		
+		person.setAppearance(appearance);
 		
 		
 		SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
@@ -172,13 +135,13 @@ public class TestDatabase extends HttpServlet {
 	
 		session.save(person);
 		session.getTransaction().commit();
-		session.close();*/
+		session.close();
 		
-		
+		PrintWriter out=response.getWriter();
 		out.println("Job Saved");
 		
-		//request.setAttribute("person",person);
-		//request.getRequestDispatcher("/home.jsp").forward(request, response);
+		request.setAttribute("person",person);
+		request.getRequestDispatcher("/home.jsp").forward(request, response);
 	}
 
 }

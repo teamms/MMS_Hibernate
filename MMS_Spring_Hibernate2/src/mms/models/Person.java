@@ -26,7 +26,15 @@ public class Person {
 	@Embedded
 	private Job job;
 	@Embedded
+	private Appearance appearance;
+	@Embedded
 	private Misc moreDetails;
+	public Appearance getAppearance() {
+		return appearance;
+	}
+	public void setAppearance(Appearance appearance) {
+		this.appearance = appearance;
+	}
 	private String about;
 	private String religion;
 	public String getPassword() {
