@@ -138,13 +138,15 @@
 		 Company:<input type="text"
 			name="companyName" /> <br> Salary:<select name="salary">
 			<%
+			int i=1;
 				for (String salary: salaries) {
 			%>
-			<option value="<%=salary%>"><%=salary%></option>
+			<option value="<%=i%>"><%=salary%></option>
 			<%
+				i++;
 				}
 			%>
-		</select><br> Job Location:<select name="salary">
+		</select><br> Job Location:<select name="jobLocation">
 			<%
 				for (String jobLocation: jobLocations) {
 			%>
@@ -173,61 +175,61 @@
 				for (String district : districts) {
 			%>
 			<option value="<%=district%>"><%=district%></option>
-			<option value="0">COOL</option>
 			<%
 				}
 			%>
-
+			<option value="0">COOL</option>
 		</select><br>
 		Preferred Religion:<select name="preferredReligion">
 			<%
 				for (String religion : religions) {
 			%>
 			<option value="<%=religion%>"><%=religion%></option>
-			<option value="0">COOL</option>
 			<%
 				}
 			%>
-
+				<option value="0">COOL</option>
 		</select><br>
 		Preferred Education:Degree:<select name="preferredDegree">
 			<%
 				for (String degree : degrees) {
 			%>
 			<option value="<%=degree%>"><%=degree%></option>
-			<option value="0">COOL</option>
 			<%
 				}
 			%>
+			<option value="0">COOL</option>
 		</select><br>
 		Preferred Complexion:<select name="preferredComplexion">
 			<%
 				for (String complexion: complexions) {
 			%>
 			<option value="<%=complexion%>"><%=complexion%></option>
-			<option value="0">COOL</option>
 			<%
 				}
 			%>
+			<option value="0">COOL</option>
 		</select><br>
 		Preferred Diet:<select name="preferredDiet">
 			<%
 				for (String diet:diets) {
 			%>
 			<option value="<%=diet%>"><%=diet%></option>
-			<option value="0">COOL</option>
 			<%
 				}
 			%>
-		</select><br> Preferred Income:<select name="preferredSalary">
+			<option value="0">COOL</option>
+		</select><br> Preferred Income:<select name="preferredIncome">
 			<%
+			i=1;
 				for (String salary: salaries) {
 			%>
-			<option value="<%=salary%>"><%=salary%></option>
-			<option value="0">COOL</option>
+			<option value="<%=i%>"><%=salary%></option>
 			<%
+				i++;
 				}
 			%>
+			<option value="0">COOL</option>
 		</select><br>
 
 		<h3>More Details</h3>
@@ -239,7 +241,7 @@
 			<%
 				}
 			%>
-		</select><br> Drinking:<select name="diet">
+		</select><br> Drinking:<select name="smoking">
 			<%
 				for (String drinking:drinkings) {
 			%>
@@ -247,7 +249,7 @@
 			<%
 				}
 			%>
-		</select><br> Smoking:<select name="diet">
+		</select><br> Smoking:<select name="drinking">
 			<%
 				for (String smoking:smokings) {
 			%>

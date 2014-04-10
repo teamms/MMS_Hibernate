@@ -38,6 +38,7 @@ public class TestDatabase extends HttpServlet {
 		
 		
 		String name=request.getParameter("name");
+		System.out.println("dfgfdg "+name);
 		String userName=request.getParameter("userName");
 		String password=request.getParameter("password");
 		String religion=request.getParameter("religion");
@@ -49,7 +50,7 @@ public class TestDatabase extends HttpServlet {
 		String degree=request.getParameter("degree");
 		String graduationArea=request.getParameter("graduationArea");
 		String degreeName=request.getParameter("degreeName");
-		String collegeName=request.getParameter("collegeName");
+		String collegeName=request.getParameter("college");
 		String postGraduation=request.getParameter("postGraduation");
 		String jobTitle=request.getParameter("jobTitle");
 		String field=request.getParameter("field");
@@ -65,6 +66,7 @@ public class TestDatabase extends HttpServlet {
 		String preferredEducation=request.getParameter("preferredEducation");
 		String preferredComplexion=request.getParameter("preferredComplexion");
 		String preferredIncome=request.getParameter("preferredIncome");
+		String preferredDiet=request.getParameter("preferredDiet");
 		String diet=request.getParameter("diet");
 		String smoking=request.getParameter("smoking");
 		String drinking=request.getParameter("drinking");
@@ -110,6 +112,7 @@ public class TestDatabase extends HttpServlet {
 		preferences.setPreferredIncome(Integer.parseInt(preferredIncome));
 		preferences.setPreferredLocation(preferredLocation);
 		preferences.setPreferredReligion(preferredReligion);
+		preferences.setPreferredDiet(preferredDiet);
 		
 		location.setCurrentCity(currentCity);
 		location.setCurrentState(currentState);
