@@ -26,7 +26,7 @@
 	%>
 <body>
 	<h2 align="center">Matrimonial Matchmaking System</h2>
-	<form action="TestDatabase" method="post" enctype="multipart/form-data">
+	<form action="TestDatabase" method="post">
 		<h3>Account Information</h3>
 		Name:<input type="text" name="name" /> <br> UserName:<input
 			type="text" name="userName" /> <br> Password:<input
