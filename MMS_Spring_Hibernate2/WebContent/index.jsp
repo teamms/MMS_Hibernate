@@ -190,7 +190,7 @@
 			%>
 				<option value="0">COOL</option>
 		</select><br>
-		Preferred Education:Degree:<select name="preferredDegree">
+		Preferred Education:Degree:<select name="preferredEducation">
 			<%
 				for (String degree : degrees) {
 			%>
