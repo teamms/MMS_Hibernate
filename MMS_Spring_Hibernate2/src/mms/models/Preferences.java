@@ -7,6 +7,7 @@ public class Preferences {
 	private String preferredReligion;
 	private String preferredEducation;
 	private String preferredComplexion;
+	private String preferredDiet;
 	private int preferredIncome;
 	
 	public int getPreferredIncome() {
@@ -40,10 +41,10 @@ public class Preferences {
 		this.preferredComplexion = preferredComplexion;
 	}
 	public String getPreferredDiet() {
-		return preferredComplexion;
+		return preferredDiet;
 	}
-	public void setPreferredDiet(String preferredComplexion) {
-		this.preferredComplexion = preferredComplexion;
+	public void setPreferredDiet(String preferredDiet) {
+		this.preferredDiet = preferredDiet;
 	}
 	
 

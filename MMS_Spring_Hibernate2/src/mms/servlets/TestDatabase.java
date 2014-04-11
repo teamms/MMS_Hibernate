@@ -97,7 +97,7 @@ public class TestDatabase extends HttpServlet {
 		misc.setDiet(diet);
 		
 		appearance.setAdditionalDetails(additionalDetails);
-		appearance.setComplexion(preferredComplexion);
+		appearance.setComplexion(complexion);
 		appearance.setHeight(Integer.parseInt(height));
 		appearance.setWeight(Integer.parseInt(weight));
 		
@@ -113,7 +113,7 @@ public class TestDatabase extends HttpServlet {
 		preferences.setPreferredLocation(preferredLocation);
 		preferences.setPreferredReligion(preferredReligion);
 		preferences.setPreferredDiet(preferredDiet);
-		
+		System.out.println(preferredComplexion);
 		location.setCurrentCity(currentCity);
 		location.setCurrentState(currentState);
 		location.setNativeCity(nativeCity);
