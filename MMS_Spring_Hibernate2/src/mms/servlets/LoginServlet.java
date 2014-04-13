@@ -46,12 +46,14 @@ public class LoginServlet extends HttpServlet {
 		String userName=request.getParameter("userName");
 		String password=request.getParameter("password");
 		SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
+		request.getSession().setAttribute("sessionFactory",sessionFactory);
 		LoginManager loginmanager=new LoginManager(sessionFactory);
 		Person person=loginmanager.checkLogin(userName,password);
 		PrintWriter out=response.getWriter();
 		if(person!=null){
 			request.getSession().setAttribute("user", person);
 			out.println("HAHA "+person.getName());
+			//response.sendRedirect("profileServlet");
 		}
 		else
 		{

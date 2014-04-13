@@ -1,9 +1,11 @@
 package mms.models;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import mms.models.Person;
 import mms.processing.PointManager;
 @Entity
+@Table (name="MMSPoints")
 public class MMSPoint {
 	private String username1;
 	private String username2;

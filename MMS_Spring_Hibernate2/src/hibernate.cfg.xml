@@ -54,6 +54,7 @@
         <!-- Names the annotated entity class -->
         <mapping class="mms.servlets.TestDatabase"/>
 		<mapping class="mms.models.Person"/>
+		<mapping class="mms.models.MMSPoint"/>
 		
     </session-factory>
 

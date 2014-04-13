@@ -1,34 +1,31 @@
 package mms.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import mms.models.MMSPoint;
 import mms.models.Person;
 import mms.processing.PersonManager;
-import mms.processing.PointManager;
 
 /**
- * Servlet implementation class pointtest
+ * Servlet implementation class ProfileServlet
  */
-@WebServlet("/PointTest")
-public class PointTest extends HttpServlet {
+@WebServlet("/ProfileServlet")
+public class ProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PointTest() {
+    public ProfileServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,23 +35,18 @@ public class PointTest extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String user1=request.getParameter("user1");
-		String user2=request.getParameter("user2");
-		SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
-		PersonManager pm=new PersonManager(sessionFactory);
-		Person p1=pm.GetPersonFromDatabase(user1);
-		Person p2=pm.GetPersonFromDatabase(user1);
-		PointManager pointM=new PointManager();
-		PrintWriter out=response.getWriter();
-		MMSPoint mmsPoint=pointM.getPoint(p1, p2);
-		out.println(mmsPoint.getPoint());
-		Session session=sessionFactory.openSession();
-		session.beginTransaction();
-	
-		session.save(mmsPoint);
-		session.getTransaction().commit();
-		session.close();
-		
+		String userName=request.getParameter("userName");
+		SessionFactory sessionFactory;
+		if(request.getSession().getAttribute("sessionFactory")==null){
+			sessionFactory=new Configuration().configure().buildSessionFactory();
+		}
+		else
+			sessionFactory=(SessionFactory)request.getSession().getAttribute("sessionFactory");
+		PersonManager personManager= new PersonManager(sessionFactory);
+		Person person=personManager.GetPersonFromDatabase(userName);
+		request.setAttribute("person", person);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
