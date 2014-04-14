@@ -86,7 +86,7 @@ public class TestDatabase extends HttpServlet {
 		job.setCompanyName(companyName);
 		job.setField(field);
 		job.setJobTitle(jobTitle);
-		job.setSalary(Integer.parseInt(salary));
+		job.setSalary(salary);
 		job.setJobLocation(jobLocation);
 		
 		misc.setDay(Integer.parseInt(dobDay));
@@ -109,7 +109,7 @@ public class TestDatabase extends HttpServlet {
 		
 		preferences.setPreferredComplexion(preferredComplexion);
 		preferences.setPreferredEducation(preferredEducation);
-		preferences.setPreferredIncome(Integer.parseInt(preferredIncome));
+		preferences.setPreferredIncome(preferredIncome);
 		preferences.setPreferredLocation(preferredLocation);
 		preferences.setPreferredReligion(preferredReligion);
 		preferences.setPreferredDiet(preferredDiet);

@@ -178,7 +178,7 @@
 			<%
 				}
 			%>
-			<option value="0">COOL</option>
+			<option value="No-Bar">No-Bar</option>
 		</select><br>
 		Preferred Religion:<select name="preferredReligion">
 			<%
@@ -188,7 +188,7 @@
 			<%
 				}
 			%>
-				<option value="0">COOL</option>
+				<option value="No-Bar">No-Bar</option>
 		</select><br>
 		Preferred Education:Degree:<select name="preferredEducation">
 			<%
@@ -198,7 +198,7 @@
 			<%
 				}
 			%>
-			<option value="0">COOL</option>
+			<option value="No-Bar">No-Bar</option>
 		</select><br>
 		Preferred Complexion:<select name="preferredComplexion">
 			<%
@@ -208,7 +208,7 @@
 			<%
 				}
 			%>
-			<option value="0">COOL</option>
+			<option value="No-Bar">No-Bar</option>
 		</select><br>
 		Preferred Diet:<select name="preferredDiet">
 			<%
@@ -218,7 +218,7 @@
 			<%
 				}
 			%>
-			<option value="0">COOL</option>
+			<option value="No-Bar">No-Bar</option>
 		</select><br> Preferred Income:<select name="preferredIncome">
 			<%
 			i=1;
@@ -229,7 +229,7 @@
 				i++;
 				}
 			%>
-			<option value="0">COOL</option>
+			<option value="No-Bar">No-Bar</option>
 		</select><br>
 
 		<h3>More Details</h3>
@@ -257,7 +257,7 @@
 			<%
 				}
 			%>
-		</select><br> 
+		</select><br>
 		<br> Date Of Birth:<br>Day:<input type="text" name="dobDay" />
 		<br> Month:<input type="text" name="dobMonth" /> <br> Year:<input
 			type="text" name="dobYear" /> <br>

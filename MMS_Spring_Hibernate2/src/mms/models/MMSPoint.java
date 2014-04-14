@@ -1,5 +1,8 @@
 package mms.models;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import mms.models.Person;
@@ -7,6 +10,15 @@ import mms.processing.PointManager;
 @Entity
 @Table (name="MMSPoints")
 public class MMSPoint {
+	
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	private int pointId;
+	public int getPointId() {
+		return pointId;
+	}
+	public void setPointId(int pointId) {
+		this.pointId = pointId;
+	}
 	private String username1;
 	private String username2;
 	private int point;

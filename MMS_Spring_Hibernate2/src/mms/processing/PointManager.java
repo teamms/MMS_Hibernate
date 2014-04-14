@@ -28,7 +28,7 @@ public class PointManager {
 		if(person1.getPreferences().getPreferredReligion().equals(person2.getReligion())){
 			points+=religionScore;
 		}
-		if(person1.getPreferences().getPreferredIncome()==person2.getJob().getSalary()){
+		if(person1.getPreferences().getPreferredIncome().equals(person2.getJob().getSalary())){
 			points+=incomeScore;
 		}
 		if(person1.getPreferences().getPreferredLocation().equals(person2.getLocation().getCurrentCity())){

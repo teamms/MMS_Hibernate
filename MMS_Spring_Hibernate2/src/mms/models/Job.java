@@ -16,7 +16,13 @@ public class Job {
 	private String companyName;
 	
 	private String jobLocation;
-	private int salary;
+	private String salary;
+	public String getSalary() {
+		return salary;
+	}
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
 	public String getJobTitle() {
 		return jobTitle;
 	}
@@ -42,11 +48,6 @@ public class Job {
 	public void setJobLocation(String jobLocation) {
 		this.jobLocation = jobLocation;
 	}
-	public int getSalary() {
-		return salary;
-	}
-	public void setSalary(int salary) {
-		this.salary = salary;
-	}
+	
 
 }

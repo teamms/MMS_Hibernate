@@ -6,7 +6,8 @@ public class AccountInformationData {
 	public final static ArrayList<String> religions= new ArrayList<String>() {{
 	    add("Christian");
 	    add("Hindu");
-	    add("Islam");
+	    add("Muslim");
+	    add("Other");
 	    }};
 	private AccountInformationData() {
 	}
