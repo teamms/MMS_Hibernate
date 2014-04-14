@@ -135,7 +135,7 @@ public class TestDatabase extends HttpServlet {
 		SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
 		Session session=sessionFactory.openSession();
 		session.beginTransaction();
-	
+		person.updateMMSPoint(sessionFactory);
 		session.save(person);
 		session.getTransaction().commit();
 		session.close();

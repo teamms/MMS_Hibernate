@@ -25,6 +25,8 @@ public class PointManager {
 		System.out.println(person1.getPreferences().getPreferredEducation()+" "+person2.getEducation().getDegree());
 		System.out.println(person1.getPreferences().getPreferredComplexion()+" "+person2.getAppearance().getComplexion());
 		System.out.println(person1.getPreferences().getPreferredDiet()+" "+person2.getMoreDetails().getDiet());
+			try {
+				
 		if(person1.getPreferences().getPreferredReligion().equals(person2.getReligion())){
 			points+=religionScore;
 		}
@@ -43,6 +45,10 @@ public class PointManager {
 		if(person1.getPreferences().getPreferredDiet().equals(person2.getMoreDetails().getDiet())){
 			points+=dietScore;
 		}
+			} catch (Exception e) {
+				// TODO: handle exception
+				return 0;
+			}
 		System.out.println(points);
 		return points;
 	}

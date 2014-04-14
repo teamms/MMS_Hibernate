@@ -1,11 +1,19 @@
 package mms.models;
 
+import java.util.List;
+
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import mms.processing.PointManager;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 
 @Entity
@@ -103,6 +111,23 @@ public class Person {
 	}
 	public void setReligion(String religion) {
 		this.religion = religion;
+	}
+	public void updateMMSPoint(SessionFactory sessionFactory){
+		Session session=sessionFactory.openSession();
+		session.beginTransaction();
+		PointManager pointManager=new PointManager();
+		Query query = session.createQuery("from Person");
+		List list = (List) query.list();
+		for(int i=0;i<list.size();i++){
+			Person person= (Person)list.get(i);
+			
+			if(person.getUserName()==null||person.getUserName().equals(this.userName))
+				continue;
+			MMSPoint mmspoint=pointManager.getPoint(this, person);
+			session.save(mmspoint);
+		}
+		session.getTransaction().commit();
+		session.close();
 	}
 	
 
