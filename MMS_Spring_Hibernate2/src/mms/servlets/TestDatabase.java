@@ -35,8 +35,6 @@ public class TestDatabase extends HttpServlet {
 		Education education=new Education();
 		
 		
-		
-		
 		String name=request.getParameter("name");
 		System.out.println("dfgfdg "+name);
 		String userName=request.getParameter("userName");

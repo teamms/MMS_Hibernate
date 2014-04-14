@@ -12,5 +12,9 @@
 Person person=(Person)request.getAttribute("person");
 out.println(person.getName());
 %>
+<form name="submitForm" action="ConnectionServlet">
+<input type="hidden" name="person" value=<%=person.getUserName()%>>
+<a href="javascript:document.submitForm.submit()">connect</a>
+</form>
 </body>
 </html>
