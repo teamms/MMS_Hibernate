@@ -35,7 +35,7 @@ public class ProfileServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String userName=request.getParameter("userName");
+		String searchUserName=request.getParameter("searchUserName");
 		SessionFactory sessionFactory;
 		if(request.getSession().getAttribute("sessionFactory")==null){
 			sessionFactory=new Configuration().configure().buildSessionFactory();
@@ -43,7 +43,7 @@ public class ProfileServlet extends HttpServlet {
 		else
 			sessionFactory=(SessionFactory)request.getSession().getAttribute("sessionFactory");
 		PersonManager personManager= new PersonManager(sessionFactory);
-		Person person=personManager.GetPersonFromDatabase(userName);
+		Person person=personManager.GetPersonFromDatabase(searchUserName);
 		request.setAttribute("person", person);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
 		dispatcher.forward(request, response);

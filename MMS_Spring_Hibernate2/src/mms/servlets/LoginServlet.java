@@ -52,7 +52,8 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		if(person!=null){
 			request.getSession().setAttribute("user", person);
-			out.println("HAHA "+person.getName());
+			//out.println("HAHA "+person.getName());
+			response.sendRedirect("home.jsp");
 			//response.sendRedirect("profileServlet");
 		}
 		else
