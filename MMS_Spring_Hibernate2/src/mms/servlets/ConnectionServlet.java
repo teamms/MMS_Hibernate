@@ -1,6 +1,8 @@
 package mms.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,6 +42,8 @@ public class ConnectionServlet extends HttpServlet {
 		System.out.println(user.getName()+" ");
 		ConnectionManager connectionManager=new ConnectionManager();
 		connectionManager.sendConnectionRequest(person, user, sessionFactory);
+		PrintWriter out=response.getWriter();
+		out.println("Connection request sent");
 	}
 
 	/**
