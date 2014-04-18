@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mms.models.Person;
 import mms.processing.LoginManager;
@@ -28,19 +29,22 @@ public class MessageServlet extends HttpServlet {
 		String userName1=request.getParameter("userName1");
 		String userName2=request.getParameter("userName2");
 		String toInboxMessage=request.getParameter("toInboxMessage");
-		
+		System.out.println("message is "+toInboxMessage);
 		//SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
-		SessionFactory sessionFactory=null;
-				
-		if(request.getAttribute("sessionFactory")!=null){
-			System.out.println("Taking from session by older servlet");
-			sessionFactory=(SessionFactory)request.getAttribute("sessionFactory");
-		}
-		else {
-			sessionFactory=new Configuration().configure().buildSessionFactory();
-			request.getSession().setAttribute("sessionFactory",sessionFactory);
-		}
+		SessionFactory sessionFactory = null;
+		HttpSession sessionStore=request.getSession(true);
 		
+		if(sessionStore.getAttribute("sessionFactory")!=null){
+			System.out.println("Taking from session by older servlet :D");
+			//sessionFactory=(SessionFactory)request.getSession().getAttribute("sessionFactory");
+			sessionFactory=(SessionFactory) sessionStore.getAttribute("sessionFactory");
+		}else {
+			System.out.println("First time so creating factory :/");
+			sessionFactory=new Configuration().configure().buildSessionFactory();
+			sessionStore.setAttribute("sessionFactory",sessionFactory);
+			
+		}
+				
 		//sessionFactory=new Configuration().configure().buildSessionFactory();
 		MessageManager messageManager=new MessageManager(sessionFactory);
 		//Person person=loginmanager.checkLogin(userName,password);
@@ -49,13 +53,13 @@ public class MessageServlet extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		if(message!=null){
 			//request.getSession().setAttribute("user", person);
-			out.println("Message sent from : <u>"+userName1+"<u> to "+userName2);
-			out.println("Content: "+toInboxMessage);
+			//out.println("Message sent from : <u>"+userName1+"<u> to "+userName2);
+			//out.println("Content: "+toInboxMessage);
 			//response.sendRedirect("profileServlet");
 		}
 		else
 		{
-			out.println("The specified username(s) doesn't exist");
+			//out.println("The specified username(s) doesn't exist");
 		}
 		
 	}

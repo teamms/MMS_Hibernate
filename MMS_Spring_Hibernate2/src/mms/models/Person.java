@@ -119,8 +119,7 @@ public class Person {
 		Query query = session.createQuery("from Person");
 		List list = (List) query.list();
 		for(int i=0;i<list.size();i++){
-			Person person= (Person)list.get(i);
-			
+			Person person= (Person)list.get(i);			
 			if(person.getUserName()==null||person.getUserName().equals(this.userName))
 				continue;
 			MMSPoint mmspoint=pointManager.getPoint(this, person);
@@ -128,7 +127,6 @@ public class Person {
 		}
 		session.getTransaction().commit();
 		session.close();
-	}
-	
+	}	
 
 }

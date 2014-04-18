@@ -45,11 +45,15 @@ public class LoginServlet extends HttpServlet {
 			//response.sendRedirect("inbox.jsp");
 			//request.getRequestDispatcher("/inbox.jsp").forward(request, response);
 //TO SUGGESTIONS
+//<<<<<<< HEAD
 			//response.sendRedirect("Suggestions.jsp");
 //To Chat	
 			request.setAttribute("person",person);
 			request.getRequestDispatcher("/chat.jsp").forward(request, response);
 			//response.sendRedirect("chat.jsp");
+//=======
+			//response.sendRedirect("home.jsp");
+//>>>>>>> branch 'master' of https://github.com/teamms/MMS_Hibernate.git
 		}
 		else{
 			out.println("Credentials Not Correct");

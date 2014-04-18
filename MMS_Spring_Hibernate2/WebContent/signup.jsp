@@ -5,7 +5,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="body.css" rel='stylesheet' type='text/css'>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+input{
+padding:5px;
+margin:10px;
+}
+select{
+padding:5px;
+margin:10px;
+}
+.details{
+padding:30px;
+left:30%;
+width:40%;
+position:relative;
+background-color: rgba(1,1,9,.2);
+}
+.details>h3
+{
+margin-bottom:20px;
+margin-top:20px;
+}
+.navigation{
+width:40px;;
+background-color: rgba(2,2,8,.3);
+cursor: pointer;
+
+}
+#prev{
+margin-left:30%;
+float:left;
+}
+#next{
+margin-left:71.5%;
+}
+.navigation:hover{
+background-color: rgba(1,2,5,.6);
+color:white;
+}
+</style>
+
 <title>Insert title here</title>
 </head>
 <%!private ArrayList<String> states = LocationData.states;
@@ -27,6 +68,7 @@
 <body>
 	<h2 align="center">Matrimonial Matchmaking System</h2>
 	<form action="TestDatabase" method="post">
+	<div id="div1" class="details">
 		<h3>Account Information</h3>
 		Name:<input type="text" name="name" /> <br> UserName:<input
 			type="text" name="userName" /> <br> Password:<input
@@ -41,7 +83,8 @@
 
 		</select><br> About:<input type="text"
 			name="about" /> <br>
-
+	</div>
+	<div id="div2" class="details">
 		<h3>Location</h3>
 		Current City:<select name="currentCity">
 			<%
@@ -77,7 +120,8 @@
 				}
 			%>
 		</select><br>
-
+	</div>
+	<div id="div3" class="details">
 		<h3>Education</h3>
 		Degree:<select name="degree">
 			<%
@@ -124,7 +168,8 @@
 				}
 			%>
 		</select><br>
-
+</div>
+<div id="div4" class="details">
 		<h3>Job</h3>
 		Job Title:<input type="text" name="jobTitle" /> <br> Field:<select name="field">
 			<%
@@ -155,7 +200,8 @@
 				}
 			%>
 		</select><br>
-
+</div>
+<div id="div5" class="details">
 		<h3>Appearance</h3>
 		Height:<input type="text" name="height" /> <br> Weight:<input
 			type="text" name="weight" /> <br> Complexion:<select name="complexion">
@@ -168,7 +214,8 @@
 			%>
 		</select><br> <br> Additional Details:<input type="text"
 			name="additionalDetails" /> <br>
-
+</div>
+<div id="div6" class="details">
 		<h3>Preferences</h3>
 		Preferred Location:<select name="preferredLocation">
 			<%
@@ -231,7 +278,8 @@
 			%>
 			<option value="No-Bar">No-Bar</option>
 		</select><br>
-
+</div>
+<div id="div7" class="details">
 		<h3>More Details</h3>
 		Diet:<select name="diet">
 			<%
@@ -258,6 +306,8 @@
 				}
 			%>
 		</select><br>
+		</div>
+		<div id="div8" class="details">
 		<br> Date Of Birth:<br>Day:<input type="text" name="dobDay" />
 		<br> Month:<input type="text" name="dobMonth" /> <br> Year:<input
 			type="text" name="dobYear" /> <br>
@@ -265,6 +315,38 @@
 		<h3>Profile Picture</h3>
 		Upload:<input type="file" name="file" /> <br> <input
 			type="submit" name="submit" /> <br>
+			</div>
 	</form>
+	<div id="prev" class="navigation">PREV</div>
+	<div id="next" class="navigation">NEXT</div>
 </body>
+<script src="jquery.js"></script>
+<script>
+var currentdiv=1;
+var maxdiv=8;
+$(".details").hide();
+$("#div"+currentdiv).show();
+$("#prev").hide();
+$("#next").click(function(){
+	
+	$("#div"+currentdiv).hide();
+	currentdiv++;
+	$("#div"+currentdiv).show();
+	if(currentdiv==maxdiv)
+		$("#next").hide();
+	if(currentdiv==2)
+		$("#prev").show();
+})
+$("#prev").click(function(){
+	
+	$("#div"+currentdiv).hide();
+	currentdiv--;
+	$("#div"+currentdiv).show();
+	if(currentdiv==1)
+		$("#prev").hide();
+	if(currentdiv==maxdiv-1)
+		$("#next").show();
+})
+
+</script>
 </html>

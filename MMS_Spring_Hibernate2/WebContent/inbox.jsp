@@ -10,12 +10,12 @@
 <title>Inbox</title>
 </head>
 <body>
-<%Person person=(Person)request.getAttribute("person"); %>
-<h2>Welcome , <%=person.getName() %></h2>
+<%Person user=(Person)request.getSession().getAttribute("user"); %>
+<h2>Welcome , <%=user.getName() %></h2>
 <h3>Inbox:</h3><br>
 <%
 MessageManager manager=new MessageManager(null);
-List<Message> messages=manager.getInboxList(person.getUserName());
+List<Message> messages=manager.getInboxList(user.getUserName());
 %>
 
 <% for(Message message:messages){%>

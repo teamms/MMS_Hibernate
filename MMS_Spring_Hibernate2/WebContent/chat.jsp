@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="chat-javascript/jquery.js"></script>
 <script type="text/javascript" src="chat-javascript/basic.js"></script>
-<title>Inbox</title>
+<title>Chat</title>
 </head>
 <body>
 <%-- <%Person person=(Person)request.getAttribute("person"); %>
@@ -23,11 +23,15 @@ List<Person> persons=manager.getAllPersons();
 <% for(Person person:persons){%>
 	<h3 id="<%=person.getUserName()%>"><u><%=person.getUserName() %></u></h3>
 <%i++;}%>
+<%Person person=(Person)request.getAttribute("person");%>
 <h2>Chat:</h2><br>
-<form id="updateMessages" >
+<form id="sendMessage" >
 <label for="message">Message:</label>
-<input type="text" id="messsage" name="message"/>
-<input type="submit"/>
+<input type="text" id="toInboxMessage" name="toInboxMessage"/>
+<input type="text" id="userName1" name="userName1" value="<%=person.getUserName() %>" style="visibility: hidden"/>
+<input type="text" id="userName2" name="userName2" value="" style="visibility: hidden"/><br>
+<input id="send_submit" type="submit" value="send" />
+<!-- <input id="send_jquery" type="button" value="Send" /> -->
 </form>
 <p id="displayMessages"/>
 

@@ -1,4 +1,7 @@
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="mms.processing.PersonManager"%>
+<%@page import="org.hibernate.SessionFactory"%>
 <%@ page import="mms.models.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -6,18 +9,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Marriage Matrimonial System</title>
 </head>
-<body>
-<h1>Redirected</h1>
-<%
-Person person=(Person)request.getSession().getAttribute("user");
+<body><center><h1>Marriage Matrimonial System</h1></center>
+
+<%!
+private Person user;
+private ArrayList<String> suggestions;
 %>
-<h1><%=person.getName() %></h1>
+<%
+user=(Person)request.getSession().getAttribute("user");
+%>
+<h1>Welcome <%=user.getName() %></h1>
 <form action="ProfileServlet">
 Search:<input type="text" name="searchUserName"/>
 <input type="submit"/>
 </form>
+<h2>Suggestions</h2>
+<%
+System.out.println(user.getName());
+SessionFactory sessionFactory=(SessionFactory)request.getSession().getAttribute("sessionFactory");
+PersonManager personManager=new PersonManager(sessionFactory);
+suggestions=personManager.GetSuggestion(user.getUserName(), 10);
+for(String personName:suggestions){
+	%>
+	<a href="ProfileServlet?searchUserName=<%=personName %>"><%=personName %></a><br>
+<%	
+}
+%>
 <%-- <c:set var="person" value="${ person.name }" />
 <h1>${persson}</h1> --%>
 </body>

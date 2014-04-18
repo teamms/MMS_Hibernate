@@ -20,6 +20,9 @@ public class ChatManager {
 	
 		public List<Person> getAllPersons(){
 		
+			//sessionFactory=
+			
+			
 		if(sessionFactory==null)
 			sessionFactory=new Configuration().configure().buildSessionFactory();		
 		

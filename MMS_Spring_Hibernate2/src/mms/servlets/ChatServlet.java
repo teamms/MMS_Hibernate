@@ -41,9 +41,9 @@ public class ChatServlet extends HttpServlet {
 		Map<String,Object> map=new HashMap<String,Object>();
 		boolean isValid=false;
 		String username=request.getParameter("username");
-		String otherUser=request.getParameter("otherUser");
-		System.out.println("name is "+username+request.getContentType());
-			
+		String otherPerson=request.getParameter("otherPerson");
+		System.out.println("username is "+username);
+		System.out.println("otherPerson is "+otherPerson);	
 		SessionFactory sessionFactory = null;
 		HttpSession sessionStore=request.getSession(true);
 		
@@ -62,9 +62,9 @@ public class ChatServlet extends HttpServlet {
 		Session session=sessionFactory.openSession();
 		session.beginTransaction();
 	
-		Query query = session.createQuery("from Message where userName2 = :username and userName1 = :otherUser");
+		Query query = session.createQuery("from Message where (userName2 = :username and userName1 = :otherPerson) or (userName1 = :username and userName2 = :otherPerson)");
 		query.setParameter("username", username);
-		query.setParameter("otherUser", otherUser);
+		query.setParameter("otherPerson", otherPerson);
 		List list = (List) query.list();
 		if(username!=null&&username.trim().length()!=0){
 			isValid=true;
