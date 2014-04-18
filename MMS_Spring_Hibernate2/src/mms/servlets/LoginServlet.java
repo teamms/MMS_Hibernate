@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 			//request.setAttribute("person",person);
 			//request.getRequestDispatcher("/inbox.jsp").forward(request, response);
 //TO SUGGESTIONS
-			response.sendRedirect("Suggestions.jsp");
+			response.sendRedirect("home.jsp");
 		}
 		else{
 			out.println("Credentials Not Correct");

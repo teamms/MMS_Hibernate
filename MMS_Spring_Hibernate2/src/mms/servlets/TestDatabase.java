@@ -141,8 +141,7 @@ public class TestDatabase extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		out.println("Job Saved");
 		
-		request.setAttribute("person",person);
-		request.getRequestDispatcher("/home.jsp").forward(request, response);
+		response.sendRedirect("login.jsp");
 	}
 
 }

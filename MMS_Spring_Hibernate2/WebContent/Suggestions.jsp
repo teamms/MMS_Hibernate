@@ -21,7 +21,7 @@ user=(Person)request.getSession().getAttribute("user");
 System.out.println(user.getName());
 SessionFactory sessionFactory=(SessionFactory)request.getSession().getAttribute("sessionFactory");
 PersonManager personManager=new PersonManager(sessionFactory);
-suggestions=personManager.GetSuggestion(user, 10);
+suggestions=personManager.GetSuggestion(user.getUserName(), 10);
 for(String personName:suggestions){
 	%>
 	<a href="ProfileServlet?searchUserName=<%=personName %>"><%=personName %></a><br>
