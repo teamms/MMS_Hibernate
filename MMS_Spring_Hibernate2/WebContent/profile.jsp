@@ -9,7 +9,7 @@
 </head>
 <body>
 <%
-Person person=(Person)request.getAttribute("person");
+Person person=(Person)request.getSession().getAttribute("searchUserName");
 out.println(person.getName());
 %>
 <form name="submitForm" action="ConnectionServlet">

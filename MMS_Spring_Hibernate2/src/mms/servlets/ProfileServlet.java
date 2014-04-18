@@ -44,9 +44,8 @@ public class ProfileServlet extends HttpServlet {
 			sessionFactory=(SessionFactory)request.getSession().getAttribute("sessionFactory");
 		PersonManager personManager= new PersonManager(sessionFactory);
 		Person person=personManager.GetPersonFromDatabase(searchUserName);
-		request.setAttribute("person", person);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
-		dispatcher.forward(request, response);
+		request.getSession().setAttribute("searchUserName", person);
+		response.sendRedirect("profile.jsp");
 	}
 
 	/**
