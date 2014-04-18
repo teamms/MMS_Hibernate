@@ -30,7 +30,7 @@ List<Person> persons=manager.getAllPersons();
 <input type="text" id="toInboxMessage" name="toInboxMessage"/>
 <input type="text" id="userName1" name="userName1" value="<%=person.getUserName() %>" style="visibility: hidden"/>
 <input type="text" id="userName2" name="userName2" value="" style="visibility: hidden"/><br>
-<input id="send_submit" type="submit" value="send" />
+<input id="send_submit" type="submit" value="Send" />
 <!-- <input id="send_jquery" type="button" value="Send" /> -->
 </form>
 <p id="displayMessages"/>

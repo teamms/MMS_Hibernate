@@ -2,7 +2,7 @@
 var clicker=null;
 
 $(document).ready(function(){
-	
+	//alert($("#userName1").val());
 	$("h3").click(function(){
 		$("h3").css("background-color","white");
 		$(this).css("background-color","red");
@@ -60,7 +60,7 @@ $(document).ready(function(){
 		};
 		var interval=1000*2;
 		setInterval(ajax_call, interval);
-		return false;
+		//return false;
 		/*$("#send_jquery").click(function(){
 			if(clicker!=null){
 				$("#userName2").val(clicker.attr('id'));				
@@ -88,20 +88,20 @@ $(document).ready(function(){
 		        },
 				//data: $('#updateUsername').serialize(),
 				success:function(data){
-					if(true){
+					/*if(true){
 						$("#displayName").html("Your name is "+data.username);
 						$("#displayName").slideDown(1000);
 					}else{
 						
 						alert('Please enter valid info');
-					}
+					}*/
 				}
 		        
 			});
 			//$('html, body').stop();
-			
+			return false;
 		});
-		return false;
+		
 	
 	
 	/*$("#updateMessages").submit(function(){

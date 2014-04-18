@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 //>>>>>>> branch 'master' of https://github.com/teamms/MMS_Hibernate.git
 		}
 		else{
-			out.println("Credentials Not Correct");
+			//out.println("Credentials Not Correct");
 		}
 	}
 
