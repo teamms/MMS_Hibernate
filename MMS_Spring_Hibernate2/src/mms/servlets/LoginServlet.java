@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 		Person person=loginmanager.checkLogin(userName,password);
 		PrintWriter out=response.getWriter();
 		if(person!=null){
-			request.getSession().setAttribute("user", person);
+			//request.getSession().setAttribute("person", person);
 //TO SEARCH
 			//out.println("HAHA "+person.getName());
 			//response.sendRedirect("home.jsp");
@@ -40,10 +40,16 @@ public class LoginServlet extends HttpServlet {
 			//out.println("Welcome "+person.getName());
 //TO INBOX
 			//response.sendRedirect("profileServlet");
+			
 			//request.setAttribute("person",person);
+			//response.sendRedirect("inbox.jsp");
 			//request.getRequestDispatcher("/inbox.jsp").forward(request, response);
 //TO SUGGESTIONS
-			response.sendRedirect("Suggestions.jsp");
+			//response.sendRedirect("Suggestions.jsp");
+//To Chat	
+			request.setAttribute("person",person);
+			request.getRequestDispatcher("/chat.jsp").forward(request, response);
+			//response.sendRedirect("chat.jsp");
 		}
 		else{
 			out.println("Credentials Not Correct");
