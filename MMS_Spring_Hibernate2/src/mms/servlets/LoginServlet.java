@@ -35,18 +35,28 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("user", person);
 //TO SEARCH
 			//out.println("HAHA "+person.getName());
-			//response.sendRedirect("home.jsp");
+			response.sendRedirect("home.jsp");
 
 			//out.println("Welcome "+person.getName());
 //TO INBOX
 			//response.sendRedirect("profileServlet");
+			
 			//request.setAttribute("person",person);
+			//response.sendRedirect("inbox.jsp");
 			//request.getRequestDispatcher("/inbox.jsp").forward(request, response);
 //TO SUGGESTIONS
-			response.sendRedirect("home.jsp");
+//<<<<<<< HEAD
+			//response.sendRedirect("Suggestions.jsp");
+//To Chat	
+			//request.setAttribute("person",person);
+			//request.getRequestDispatcher("/chat.jsp").forward(request, response);
+			//response.sendRedirect("chat.jsp");
+//=======
+			//response.sendRedirect("home.jsp");
+//>>>>>>> branch 'master' of https://github.com/teamms/MMS_Hibernate.git
 		}
 		else{
-			out.println("Credentials Not Correct");
+			//out.println("Credentials Not Correct");
 		}
 	}
 

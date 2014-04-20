@@ -1,3 +1,4 @@
+<%@page import="org.hibernate.cfg.Configuration"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="mms.models.MMSPoint"%>
 <%@page import="org.hibernate.SessionFactory"%>
@@ -20,6 +21,7 @@ private ArrayList<String> suggestions;
 user=(Person)request.getSession().getAttribute("user");
 System.out.println(user.getName());
 SessionFactory sessionFactory=(SessionFactory)request.getSession().getAttribute("sessionFactory");
+//sessionFactory=new Configuration().configure().buildSessionFactory();
 PersonManager personManager=new PersonManager(sessionFactory);
 suggestions=personManager.GetSuggestion(user.getUserName(), 10);
 for(String personName:suggestions){
