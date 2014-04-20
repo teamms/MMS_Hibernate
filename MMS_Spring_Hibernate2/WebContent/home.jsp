@@ -31,9 +31,18 @@ position: relative;
 a{
 display: inline-block;
 }
+#heading{
+margin-top:40px;
+font-size: 40px;
+}
+#greeting{
+font-size: 40px;
+}
 </style>
 </head>
-<body><center><h1>Marriage Matrimonial System</h1></center>
+<body>
+<%@include file="header.jsp" %>
+<center><div id="heading">Marriage Matrimonial System</div></center>
 
 <%!
 private Person user;
@@ -42,8 +51,8 @@ private ArrayList<String> suggestions;
 <%
 user=(Person)request.getSession().getAttribute("user");
 %>
-<%@include file="header.jsp" %>
-<h1>Welcome <%=user.getName() %></h1>
+
+<div id="greeting">Welcome <%=user.getName() %></div>
 <form action="ProfileServlet">
 Search:<input type="text" name="searchUserName"/>
 <input type="submit"/>

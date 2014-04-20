@@ -29,7 +29,6 @@ Username:<input type="text" name="userName"/><br>
 Password:<input type="password" name="password"/><br>
 <input type="submit" name="submit" value="Login"/>
 </form>
-<button ></button>
 <form action="signup.jsp">
 <input type="submit" value="Sign Up">
 </form>

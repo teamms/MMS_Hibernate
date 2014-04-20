@@ -3,15 +3,20 @@
 width:100%;
 position: fixed;
 top:0px;
+position: -webkit-sticky;
 }
 .header_links{
 float: left;
-background-color: rgba(5,5,7,.5);
+background-color: rgb(5,5,7);
 padding: 5px;
 font-size:20px;
 border: 1px solid black;
 cursor:pointer;
+color:white;
 }
 .header_links:hover{
 background-color: rgba(5,5,7,.1)
+}
+#header>a{
+	display: block;
 }
