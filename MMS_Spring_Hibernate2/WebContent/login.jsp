@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <link href="body.css" rel='stylesheet' type='text/css'>
@@ -36,8 +36,9 @@ opacity:.8;
 <center><h1 class="header">Matrimonial Matchmaking System</h1></center>
 <div id="container">
 <form method="post" action="LoginServlet">
-Username:<input type="text" name="userName"/><br>
-Password:<input type="password" name="password"/><br>
+Username:<input type="text" required name="userName" aria-describedby="name-format" required aria-required=”true”/><br>
+Password:<input type="password" required name="password"/><br>
+<!-- <input id="name" name="name" value="" aria-describedby="name-format" required aria-required=”true”/> -->
 <input type="submit" name="submit" value="Login"/>
 </form>
 <form action="signup.jsp">

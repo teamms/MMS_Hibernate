@@ -1,5 +1,5 @@
 <div id="header">
-<div class="header_links"><img src="images/p2.png" style="width:30px;height:30px;"/>Pranayam</div>
+<div class="header_links"><img src="images/p3.png" style="width:30px;height:30px;"/>ranayam</div>
  <div class="header_links" id="search"><form action="ProfileServlet">
 <input type="text" id="searchBox" name="searchUserName" placeholder="Search..." />
 <!-- <input type="submit"/> -->

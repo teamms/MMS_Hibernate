@@ -18,12 +18,7 @@
 <script type="text/javascript" src="chat-javascript/jquery.js"></script>
 <script type="text/javascript" src="chat-javascript/basic.js"></script>
 <style>
-#chatBox{
-align:right;
 
-
-
-}
 .currentlyChosenPerson{
 width: 95%;
 font-size: 18px;
@@ -35,6 +30,13 @@ cursor:pointer;
 }
 .currentlyChosenPerson:hover{
 background-color: grey !important;
+
+
+}
+
+#displayMessages{
+overflow: auto;
+height:200px;
 
 
 }
@@ -86,16 +88,21 @@ font-size: 40px;
 }
 #greeting{
 font-size: 40px;
+color:rgba(256,256,256,.05);
 }
 #margin-corrector-div{
 height:50px;
 }
 #chatBox{
-background-color: red;
+
+border: brown 3px solid;
+background-color: rgba(256,0,0,.5);
 width: 25%;
 position: fixed;
 right: 19%;
-top: 83%;
+bottom:2%;
+padding:4px;
+
 }
 
 </style>
@@ -123,6 +130,8 @@ List<Person> persons=manager.getAllPersons();
 <%Person person=(Person)request.getSession().getAttribute("user");%>
 
 <div id="chatBox">
+<div id="displayMessages"></div>
+<div id="displayMessagesHidden" style="visibility:hidden"></div>
 <form id="sendMessage" >
 <label for="message">Message:</label>
 <input type="text" id="toInboxMessage" name="toInboxMessage"/>
@@ -131,8 +140,7 @@ List<Person> persons=manager.getAllPersons();
 <!-- <input id="send_submit" type="submit" value="Send" /> -->
 <!-- <input id="send_jquery" type="button" value="Send" /> -->
 </form>
-<div id="displayMessages"></div>
-<div id="displayMessagesHidden" style="visibility:hidden"></div>
+
 </div>
 
 

@@ -3,10 +3,10 @@ var clicker=null;
 
 $(document).ready(function(){
 	
-	/*window.setInterval(function() {
+	window.setInterval(function() {
 		  var elem = document.getElementById('displayMessages');
 		  elem.scrollTop = elem.scrollHeight;
-		}, 1000);*/
+		}, 1000);
 	
 	
 	
@@ -22,7 +22,7 @@ $(document).ready(function(){
 	
 	
 	$(".currentlyChosenPerson").click(function(){
-		$("#displayMessages").html("wait...");
+		$("#displayMessages").html("Fetching...");
 	})
 	
 	var ajax_call = function() {
