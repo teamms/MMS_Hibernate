@@ -1,7 +1,5 @@
 package mms.processing;
 
-import java.awt.Point;
-
 import mms.models.MMSPoint;
 import mms.models.Person;
 
@@ -49,6 +47,9 @@ public class PointManager {
 				// TODO: handle exception
 				return 0;
 			}
+		if(person1.getSex().equals(person2.getSex()))
+			return 0;
+			
 		System.out.println(points);
 		return points;
 	}

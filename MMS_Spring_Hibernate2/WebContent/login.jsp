@@ -5,24 +5,35 @@
 <head>
 <link href="body.css" rel='stylesheet' type='text/css'>
 <style>
-#container{
+ #container{
 position: absolute;
 top:40%;
 left:40%;
 background-color: rgba(1,1,9,.2);
 padding:10px;
-}
+} 
 input{
 padding:5px;
 margin:10px;
 }
+.header{
+background-color: #603311;
+color:#FEE8D6	;
+font-family:cursive;
+font-style:;
+
+opacity:.8;
+
+}
+
 
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
 </head>
 <body>
-<center><h1>Mariage Matrimonial System</h1></center>
+<div id="bgcontainer"></div>
+<center><h1 class="header">Matrimonial Matchmaking System</h1></center>
 <div id="container">
 <form method="post" action="LoginServlet">
 Username:<input type="text" name="userName"/><br>

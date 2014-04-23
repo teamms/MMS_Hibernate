@@ -72,7 +72,12 @@ color:white;
 		<h3>Account Information</h3>
 		Name:<input type="text" name="name" /> <br> UserName:<input
 			type="text" name="userName" /> <br> Password:<input
-			type="password" name="password" /> <br> Religion:<select name="religion">
+			type="password" name="password" /> <br>Sex:<select name="sex">
+			
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+
+		</select><br> Religion:<select name="religion">
 			<%
 				for (String religion : religions) {
 			%>

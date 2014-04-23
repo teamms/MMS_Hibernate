@@ -10,12 +10,42 @@ float: left;
 background-color: rgb(5,5,7);
 padding: 5px;
 font-size:20px;
-border: 1px solid black;
+/* border: 1px solid black; */
 cursor:pointer;
 color:white;
+height:40px;
 }
+#searchBox{
+width: 366px;
+height: 26px;
+margin-top: 4px;
+
+	
+}
+#search{
+margin-left: 0px;
+
+padding-left: 16.4%;
+	
+}
+
+
+#search:hover{
+	cursor:auto;
+	background-color:rgb(5,5,7);
+	
+}
+
+
 .header_links:hover{
-background-color: rgba(5,5,7,.1)
+background-color: rgba(5,5,7,.1);
+/* color:black; */
+}
+.header_links img{
+	-webkit-transition:all .2s ease-out;
+}
+.header_links:hover img{
+	-webkit-transform: scale(1.6,1.6);
 }
 #header>a{
 	display: block;

@@ -2,10 +2,18 @@
 var clicker=null;
 
 $(document).ready(function(){
+	
+	/*window.setInterval(function() {
+		  var elem = document.getElementById('displayMessages');
+		  elem.scrollTop = elem.scrollHeight;
+		}, 1000);*/
+	
+	
+	
 	//alert($("#userName1").val());
-	$("h3").click(function(){
-		$("h3").css("background-color","white");
-		$(this).css("background-color","red");
+	$(".currentlyChosenPerson").click(function(){
+		$(".currentlyChosenPerson").css("background-color","transparent");
+		$(this).css("background-color","#5E2612");
 		$("#displayMessages").html("");
 		clicker=$(this);
 	});
@@ -13,7 +21,9 @@ $(document).ready(function(){
 	
 	
 	
-	
+	$(".currentlyChosenPerson").click(function(){
+		$("#displayMessages").html("wait...");
+	})
 	
 	var ajax_call = function() {
 		
@@ -26,8 +36,8 @@ $(document).ready(function(){
 		var otherPerson=clicker.attr('id');
 		console.log(otherPerson);
 		
-		$("#displayMessages").html("");
-		
+		//$("#displayMessagesHidden").css("visibility","hidden");
+		//$("#displayMessages").html("wait...");
 		$.ajax({
 			url: 'ChatServlet',
 			type: 'GET',
@@ -43,19 +53,28 @@ $(document).ready(function(){
 					var count = Object.keys(data.messages).length;
 					console.log(count);
 					for(i=0;i<count;i++){
-						$("#displayMessages").append(data.messages[i].userName1+": "+data.messages[i].message+"<br>");
-						$("#displayMessages").slideDown(1000);
+						$("#displayMessagesHidden").append(data.messages[i].userName1+": "+data.messages[i].message+"<br>");
+						/*$("#displayMessages").slideDown(1000);*/
 						
 					}
+					
+					//$("#displayMessagesHidden").css("visibility","visible");
+					$("#displayMessages").html($("#displayMessagesHidden").html());
+					
+					console.log($("#displayMessagesHidden").html());
+					$("#displayMessagesHidden").html("");
+					
+					/*$("html, body").animate({ scrollTop: $(document).height() }, 1000);*/
 					
 				}else{
 					
 					alert('Please enter valid info');
 				}
 			}
+	        	 // error:function(){alert("sad");}
 	        	  
 		});
-		$('html, body').stop();
+		/*$('html, body').stop();*/
 		return false;
 		};
 		var interval=1000*2;
@@ -75,19 +94,20 @@ $(document).ready(function(){
 			//alert($("#userName1").val());
 			//alert(clicker.attr('id'));
 			//alert($("#toInboxMessage").val());
-			
+			//alert("h");
 			$.ajax({
 				url: 'MessageServlet',
 				type: 'GET',
 				dataType: 'json',
 				contentType: 'application/json',
 		        mimeType: 'application/json',
-		        data:{"userName1" : $("#userName1").val(),
-		        	"userName2"   : clicker.attr('id'),
+		        data:{
+		        	"otherPerson"   : clicker.attr('id'),
 		        	"toInboxMessage"     :$('#toInboxMessage').val()
 		        },
 				//data: $('#updateUsername').serialize(),
 				success:function(data){
+					
 					/*if(true){
 						$("#displayName").html("Your name is "+data.username);
 						$("#displayName").slideDown(1000);

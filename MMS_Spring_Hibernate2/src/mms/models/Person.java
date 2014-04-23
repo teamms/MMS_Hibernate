@@ -25,6 +25,8 @@ public class Person {
 	private String name;
 	private String userName;
 	private String password;
+	private String sex;
+	
 	@Embedded
 	private Preferences preferences;
 	@Embedded
@@ -39,6 +41,13 @@ public class Person {
 	private Misc moreDetails;
 	public Appearance getAppearance() {
 		return appearance;
+	}
+	
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 	public void setAppearance(Appearance appearance) {
 		this.appearance = appearance;

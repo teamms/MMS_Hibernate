@@ -39,6 +39,7 @@ public class TestDatabase extends HttpServlet {
 		System.out.println("dfgfdg "+name);
 		String userName=request.getParameter("userName");
 		String password=request.getParameter("password");
+		String sex=request.getParameter("sex");
 		String religion=request.getParameter("religion");
 		String about=request.getParameter("about");
 		String currentCity=request.getParameter("currentCity");
@@ -128,6 +129,7 @@ public class TestDatabase extends HttpServlet {
 		person.setReligion(religion);
 		person.setUserName(userName);
 		person.setAppearance(appearance);
+		person.setSex(sex);
 		
 		
 		SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();

@@ -26,8 +26,8 @@ public class MessageServlet extends HttpServlet {
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String userName1=request.getParameter("userName1");
-		String userName2=request.getParameter("userName2");
+		String userName1=((Person)(request.getSession().getAttribute("user"))).getUserName();
+		String userName2=request.getParameter("otherPerson");
 		String toInboxMessage=request.getParameter("toInboxMessage");
 		System.out.println("message is "+toInboxMessage);
 		//SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();

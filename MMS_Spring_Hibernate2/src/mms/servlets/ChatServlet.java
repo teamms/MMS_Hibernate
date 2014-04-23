@@ -40,7 +40,8 @@ public class ChatServlet extends HttpServlet {
 		
 		Map<String,Object> map=new HashMap<String,Object>();
 		boolean isValid=false;
-		String username=request.getParameter("username");
+		String username=((Person) request.getSession().getAttribute("user")).getUserName();
+		System.out.println("new name is"+username);
 		String otherPerson=request.getParameter("otherPerson");
 		System.out.println("username is "+username);
 		System.out.println("otherPerson is "+otherPerson);	

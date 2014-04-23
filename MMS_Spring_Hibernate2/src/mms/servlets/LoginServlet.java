@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mms.models.Person;
 import mms.processing.LoginManager;
@@ -31,8 +32,13 @@ public class LoginServlet extends HttpServlet {
 		LoginManager loginmanager=new LoginManager(sessionFactory);
 		Person person=loginmanager.checkLogin(userName,password);
 		PrintWriter out=response.getWriter();
+		
+		HttpSession sessionStore=request.getSession(true);
+		sessionStore.setAttribute("person",person);
 		if(person!=null){
 			request.getSession().setAttribute("user", person);
+			//request.setAttribute("person",person);
+			//request.getSession().setAttribute("person", person);
 //TO SEARCH
 			//out.println("HAHA "+person.getName());
 			response.sendRedirect("home.jsp");
